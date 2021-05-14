@@ -11,11 +11,19 @@ public class FirstTestng {
 	WebDriver driver;  
 	@Test
 	public void test1() {
- 	 
-		WebDriverManager.chromedriver().setup();			
-		driver=new ChromeDriver();
+
+		WebDriver driver;
+		System.setProperty("webdriver.chrome.driver", "/usr/bin/google-chrome");
+		ChromeOptions options = new ChromeOptions();
+		options.addArguments("headless");
+		driver = new ChromeDriver(options);
+		//WebDriverManager.chromedriver().setup();			
+		//driver=new ChromeDriver();
 		driver.get("http://jupiter.cloud.planittesting.com/");
 		System.out.println("Got the title in TestNG"+ driver.getTitle());
 		driver.quit();
+		
+		
+        
 	}
 }
